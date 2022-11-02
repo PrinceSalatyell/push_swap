@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josanton <josanton@student.42.fr>          +#+  +:+       +#+        */
+/*   By: josanton <josanton@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 01:53:27 by josanton          #+#    #+#             */
-/*   Updated: 2022/10/23 18:35:52 by josanton         ###   ########.fr       */
+/*   Updated: 2022/11/02 23:00:06 by josanton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,33 @@ int	*parsing(int n, char **argv)
 	i = 0;
 	while (argv[++i])
 	{
-		if (ft_atoll(argv[i]) > 2147483647 || ft_atoll(argv[i]) < -2147483648)
+		if (ft_atolll(argv[i]) > 2147483647 || ft_atolll(argv[i]) < -2147483648)
 			return (NULL);
 	}
-	stack = malloc(sizeof(int) * n - 1);
+	stack = malloc(sizeof(int) * (n - 1));
 	i = 0;
 	while (argv[i + 1])
-		stack[i] = atoll(argv[++i]);
+	{
+		stack[i] = atoi(argv[i + 1]);
+		i++;
+	}
 	return (stack);
 }
 
-int	*sort(int *numbers)
+int	*sort(int *numbers, int len)
 {
+	int	*res;
 	int	i;
+
+	i = 0;
+	res = malloc(sizeof(int) * (len));
+	while (i < len)
+	{
+		res[i] = numbers[i];
+		i++;
+	}
+	ft_quicksort(res, len);
+	return (res);
 }
 
 int	main(int argc, char **argv)
@@ -67,6 +81,7 @@ int	main(int argc, char **argv)
 	int	*stack_a;
 	int	*stack_b;
 	int	*sorted;
+	int	i;
 
 	if (argc < 2)
 		return (0);
@@ -78,7 +93,7 @@ int	main(int argc, char **argv)
 			ft_printf("Error!");
 			return (0);
 		}
-		sorted = sort(stack_a);
+		sorted = sort(stack_a, argc - 1);
 	}
 	else
 		ft_printf("Error");
