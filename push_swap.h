@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josanton <josanton@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: josanton <josanton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 01:53:32 by josanton          #+#    #+#             */
-/*   Updated: 2022/10/23 00:27:40 by josanton         ###   ########.fr       */
+/*   Updated: 2022/11/08 22:22:53 by josanton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,8 @@
 
 typedef struct s_stack
 {
-	int				value;
-	int				index;
-	int				pos;
-	int				target_pos;
-	int				cost_a;
-	int				cost_b;
+	int				number;
 	struct s_stack	*next;
-}	t_stack;
+}					t_stack;
 
 #endif

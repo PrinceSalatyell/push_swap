@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josanton <josanton@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: josanton <josanton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 01:53:27 by josanton          #+#    #+#             */
-/*   Updated: 2022/11/02 23:00:06 by josanton         ###   ########.fr       */
+/*   Updated: 2022/11/08 22:20:02 by josanton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ int	check_input(char **argv, int i, int j)
 {
 	while (argv[i])
 	{
-		j = 0;
-		while (argv[i][j])
+		j = -1;
+		while (argv[i][++j])
 		{
-			if (j == 0 && (argv[i][j++] == '-' || argv[i][j - 1] == '+'))
+			if (j == 0 && (argv[i][j] == '-' || argv[i][j] == '+'))
 				continue ;
-			if (!ft_isdigit(argv[i][j++]))
+			if (!ft_isdigit(argv[i][j]))
 				return (0);
 		}
 		i++;
@@ -47,7 +47,7 @@ int	*parsing(int n, char **argv)
 	i = 0;
 	while (argv[++i])
 	{
-		if (ft_atolll(argv[i]) > 2147483647 || ft_atolll(argv[i]) < -2147483648)
+		if (ft_atoll(argv[i]) > 2147483647 || ft_atoll(argv[i]) < -2147483648)
 			return (NULL);
 	}
 	stack = malloc(sizeof(int) * (n - 1));
@@ -76,24 +76,55 @@ int	*sort(int *numbers, int len)
 	return (res);
 }
 
+t_stack	*put_in_list(int *numbers, int size)
+{
+	t_stack	*res;
+	t_stack	*tmp;
+	t_stack	*end;
+	int		i;
+
+	res = malloc(sizeof(t_stack));
+	res->next = NULL;
+	res->number = numbers[0];
+	i = 0;
+	end = res;
+	while (++i < size)
+	{
+		tmp = malloc(sizeof(t_stack));
+		tmp->next = NULL;
+		tmp->number = numbers[i];
+		end->next = tmp;
+		end = tmp;
+	}
+	tmp = res;
+	while (tmp)
+	{
+		ft_printf("%i\n", tmp->number);
+		tmp = tmp->next;
+	}
+	return (res);
+}
+
 int	main(int argc, char **argv)
 {
-	int	*stack_a;
-	int	*stack_b;
-	int	*sorted;
-	int	i;
+	int		*stack;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	int		*sorted;
+	int		i;
 
 	if (argc < 2)
 		return (0);
 	if (check_input(argv, 1, 0))
 	{
-		stack_a = parsing(argc, argv);
-		if (stack_a == NULL)
+		stack = parsing(argc, argv);
+		if (stack == NULL)
 		{
 			ft_printf("Error!");
 			return (0);
 		}
-		sorted = sort(stack_a, argc - 1);
+		sorted = sort(stack, argc - 1);
+		stack_a = put_in_list(stack, argc - 1);
 	}
 	else
 		ft_printf("Error");
