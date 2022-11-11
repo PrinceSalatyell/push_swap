@@ -6,7 +6,7 @@
 /*   By: josanton <josanton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 01:53:27 by josanton          #+#    #+#             */
-/*   Updated: 2022/11/08 22:20:02 by josanton         ###   ########.fr       */
+/*   Updated: 2022/11/10 23:58:10 by josanton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,12 +97,6 @@ t_stack	*put_in_list(int *numbers, int size)
 		end = tmp;
 	}
 	tmp = res;
-	while (tmp)
-	{
-		ft_printf("%i\n", tmp->number);
-		tmp = tmp->next;
-	}
-	return (res);
 }
 
 int	main(int argc, char **argv)
@@ -125,6 +119,11 @@ int	main(int argc, char **argv)
 		}
 		sorted = sort(stack, argc - 1);
 		stack_a = put_in_list(stack, argc - 1);
+		stack_b = NULL;
+		print_list(stack_a);
+		reverse(&stack_a, 'a');
+		ft_printf("\n");
+		print_list(stack_a);
 	}
 	else
 		ft_printf("Error");
