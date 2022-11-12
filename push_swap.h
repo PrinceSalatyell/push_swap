@@ -6,7 +6,7 @@
 /*   By: josanton <josanton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 01:53:32 by josanton          #+#    #+#             */
-/*   Updated: 2022/11/10 23:58:02 by josanton         ###   ########.fr       */
+/*   Updated: 2022/11/12 03:19:15 by josanton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,16 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-void	swap(t_stack **stack, char c);
+void		swap(t_stack **stack, char c);
 
-void	push(t_stack **stack_1, t_stack **stack_2, char c);
+void		push(t_stack **stack_1, t_stack **stack_2, char c);
 
-void	rotate(t_stack **stack, char c);
+void		rotate(t_stack **stack, char c);
 
-void	reverse(t_stack **stack, char c);
+void		reverse(t_stack **stack, char c);
 
-void	print_list(t_stack *list);
+void		print_list(t_stack *list);
+
+long long	*normalize(long long *numbers, int len)
 
 #endif

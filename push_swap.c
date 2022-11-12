@@ -6,7 +6,7 @@
 /*   By: josanton <josanton@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 01:53:27 by josanton          #+#    #+#             */
-/*   Updated: 2022/11/10 23:58:10 by josanton         ###   ########.fr       */
+/*   Updated: 2022/11/11 22:40:56 by josanton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ int	check_input(char **argv, int i, int j)
 	return (1);
 }
 
-int	*parsing(int n, char **argv)
+long	*parsing(int n, char **argv)
 {
-	int	i;
-	int	*stack;
+	int		i;
+	long	*stack;
 
 	i = 0;
 	while (argv[++i])
@@ -54,7 +54,7 @@ int	*parsing(int n, char **argv)
 	i = 0;
 	while (argv[i + 1])
 	{
-		stack[i] = atoi(argv[i + 1]);
+		stack[i] = atoll(argv[i + 1]);
 		i++;
 	}
 	return (stack);
@@ -101,11 +101,11 @@ t_stack	*put_in_list(int *numbers, int size)
 
 int	main(int argc, char **argv)
 {
-	int		*stack;
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	int		*sorted;
-	int		i;
+	long		*stack;
+	t_stack		*stack_a;
+	t_stack		*stack_b;
+	int			*sorted;
+	int			i;
 
 	if (argc < 2)
 		return (0);
