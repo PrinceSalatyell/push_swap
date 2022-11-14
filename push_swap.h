@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josanton <josanton@student.42.fr>          +#+  +:+       +#+        */
+/*   By: josanton <josanton@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 01:53:32 by josanton          #+#    #+#             */
-/*   Updated: 2022/11/12 19:36:20 by josanton         ###   ########.fr       */
+/*   Updated: 2022/11/14 23:26:04 by josanton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,12 @@ void		reverse(t_stack **stack_1, t_stack **stack_2, char c);
 
 void		print_list(t_stack *list);
 
-int		list_size(t_stack *list);
+int			list_size(t_stack *list);
 
 long long	*normalize(long long *numbers, int len);
 
 void		radix_sort(t_stack **stack_a, t_stack **stack_b);
+
+void		free_list(t_stack *list);
 
 #endif

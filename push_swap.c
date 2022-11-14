@@ -6,7 +6,7 @@
 /*   By: josanton <josanton@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 01:53:27 by josanton          #+#    #+#             */
-/*   Updated: 2022/11/14 23:06:49 by josanton         ###   ########.fr       */
+/*   Updated: 2022/11/14 23:20:07 by josanton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,8 @@ int	main(int argc, char **argv)
 		stack = normalize(stack, argc -1);
 		stack_a = put_in_list(stack, argc - 1);
 		radix_sort(&stack_a, &stack_b);
+		free(stack);
+		free_list(stack_a);
 	}
 	else
 		ft_printf("Error");
