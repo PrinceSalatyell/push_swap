@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josanton <josanton@student.42.fr>          +#+  +:+       +#+        */
+/*   By: josanton <josanton@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 01:53:27 by josanton          #+#    #+#             */
-/*   Updated: 2022/11/12 20:20:57 by josanton         ###   ########.fr       */
+/*   Updated: 2022/11/14 23:06:49 by josanton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ t_stack	*put_in_list(long long *numbers, int size)
 		end = tmp;
 	}
 	tmp = res;
+	return (res);
 }
 
 int	main(int argc, char **argv)
@@ -104,8 +105,6 @@ int	main(int argc, char **argv)
 	long long		*stack;
 	t_stack			*stack_a;
 	t_stack			*stack_b;
-	long long		*sorted;
-	int				i;
 
 	stack_b = NULL;
 	if (argc < 2)
@@ -118,7 +117,6 @@ int	main(int argc, char **argv)
 			ft_printf("Error!");
 			return (0);
 		}
-		sorted = sort(stack, argc - 1);
 		stack = normalize(stack, argc -1);
 		stack_a = put_in_list(stack, argc - 1);
 		radix_sort(&stack_a, &stack_b);

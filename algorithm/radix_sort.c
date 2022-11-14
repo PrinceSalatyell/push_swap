@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josanton <josanton@student.42.fr>          +#+  +:+       +#+        */
+/*   By: josanton <josanton@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 19:20:27 by josanton          #+#    #+#             */
-/*   Updated: 2022/11/12 20:18:27 by josanton         ###   ########.fr       */
+/*   Updated: 2022/11/14 22:54:04 by josanton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,4 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b)
 		if ((is_sorted(*stack_a) && *stack_b == NULL))
 			break ;
 	}
-	ft_printf("===========%i=============\n", i);
-	print_list(*stack_a);
-	ft_printf("=========================\n");
-	print_list(*stack_b);
 }
