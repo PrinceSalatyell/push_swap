@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: josanton <josanton@student.42lisboa.com>   +#+  +:+       +#+         #
+#    By: josanton <josanton@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/22 01:47:06 by josanton          #+#    #+#              #
-#    Updated: 2022/11/14 23:50:40 by josanton         ###   ########.fr        #
+#    Updated: 2022/11/18 22:57:31 by josanton         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,16 +48,14 @@ COLOUR_YELLOW=\033[7;1;33m
 
 # +*+*+**++*+*+*+*+*+*+**+ RULES ++*+**+**++*+*+*+*+*+*+*+*+*+
 
-all:	${NAME} | submodule
+all:	${NAME}
 
-${NAME}:	${OBJS} libft/libft.a ${DIR_OBJ}
+${NAME}:	${OBJS} libft/libft.a
 	@${GCC} -o ${NAME} ${OBJS} -Llibft -lft
 	@echo "${COLOUR_GREEN} >>> PUSH_SWAP OK <<< ${COLOUR_END}"
 
-submodule:
-	@git submodule update --init --recursive
-
 ${DIR_OBJ}%.o:%.c
+	@git submodule update --init --recursive
 	@mkdir -p ${dir $@}
 	@${CC} ${42FLAGS} -c $< -o $@
 
