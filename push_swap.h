@@ -6,7 +6,7 @@
 /*   By: josanton <josanton@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 01:53:32 by josanton          #+#    #+#             */
-/*   Updated: 2022/11/14 23:26:04 by josanton         ###   ########.fr       */
+/*   Updated: 2022/11/24 00:53:14 by josanton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,14 @@ int			list_size(t_stack *list);
 
 long long	*normalize(long long *numbers, int len);
 
-void		radix_sort(t_stack **stack_a, t_stack **stack_b);
+void		radix_sort(t_stack **stack_a, t_stack **stack_b, int len);
+
+int			is_sorted(t_stack *stack_a);
 
 void		free_list(t_stack *list);
+
+void		algo_for_three(t_stack **stack_a, int a, int b, int c);
+
+void		algo_for_five(t_stack **stack_a, t_stack **stack_b);
 
 #endif

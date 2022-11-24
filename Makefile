@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: josanton <josanton@student.42.fr>          +#+  +:+       +#+         #
+#    By: josanton <josanton@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/22 01:47:06 by josanton          #+#    #+#              #
-#    Updated: 2022/11/18 22:57:31 by josanton         ###   ########.fr        #
+#    Updated: 2022/11/24 01:07:43 by josanton         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,9 @@ SRCS	=	push_swap.c \
 			ops/push_and_swap.c \
 			ops/rotate_and_reverse.c \
 			ops/free.c \
-			algorithm/radix_sort.c
+			algorithm/radix_sort.c \
+			algorithm/algo_for_three.c\
+			algorithm/algo_for_five.c
 
 OBJS	=	${SRCS:%.c=${DIR_OBJ}%.o}
 
@@ -32,7 +34,7 @@ DIR_OBJ = objs/
 
 CC	=	gcc
 
-42FLAGS	=	-Wall -Wextra -Wextra
+42FLAGS	=	-Wall -Wextra -Wextra -g -fsanitize=address
 
 GCC	=	${CC} ${42FLAGS}
 

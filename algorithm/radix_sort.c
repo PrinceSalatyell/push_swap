@@ -6,7 +6,7 @@
 /*   By: josanton <josanton@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 19:20:27 by josanton          #+#    #+#             */
-/*   Updated: 2022/11/14 22:54:04 by josanton         ###   ########.fr       */
+/*   Updated: 2022/11/24 00:54:57 by josanton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,20 @@ void	operations(t_stack **stack_a, t_stack **stack_b, int bit_index)
 	}
 }
 
-void	radix_sort(t_stack **stack_a, t_stack **stack_b)
+void	radix_sort(t_stack **stack_a, t_stack **stack_b, int len)
 {
 	int	i;
 
+	if (len == 3)
+	{
+		algo_for_three(stack_a, 0, 0, 0);
+		return ;
+	}
+	if (len == 5)
+	{
+		algo_for_five(stack_a, stack_b);
+		return ;
+	}
 	i = -1;
 	while (++i < 33)
 	{
