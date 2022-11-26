@@ -6,7 +6,7 @@
 /*   By: josanton <josanton@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 01:53:27 by josanton          #+#    #+#             */
-/*   Updated: 2022/11/24 01:01:50 by josanton         ###   ########.fr       */
+/*   Updated: 2022/11/26 00:54:47 by josanton         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ int	main(int argc, char **argv)
 		stack = parsing(argc, argv);
 		if (stack == NULL)
 		{
-			ft_printf("Error!");
+			ft_printf("Error\n");
 			return (0);
 		}
 		stack = normalize(stack, argc -1);
@@ -124,6 +124,6 @@ int	main(int argc, char **argv)
 		free_list(stack_a);
 	}
 	else
-		ft_printf("Error");
+		ft_printf("Error\n");
 	return (0);
 }
